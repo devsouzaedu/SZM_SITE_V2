@@ -25,3 +25,22 @@ $(document).ready(function() {
 
     setInterval(nextSlide, 4000); // Altere o intervalo conforme necessário (em milissegundos)
   });
+  document.addEventListener('DOMContentLoaded', function () {
+    // Adiciona um ouvinte de clique aos botões
+    document.querySelectorAll('.buttons-container button').forEach(function (button) {
+      button.addEventListener('click', function () {
+        // Obtém o valor do atributo 'data-target'
+        var targetId = button.getAttribute('data-target');
+  
+        // Obtém a posição da seção de destino
+        var targetSection = document.getElementById(targetId);
+        var targetPosition = targetSection.offsetTop;
+  
+        // Rola a página até a posição da seção de destino
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth' // Adiciona um efeito de rolar suave
+        });
+      });
+    });
+  });
